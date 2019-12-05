@@ -520,7 +520,7 @@ function printInstruction () {
 	ctx.font="12px monospace";
 	ctx.textAlign = "left";
 
-	var txt = "WELCOME TO \nPACMAN 15-237!\n\n\nArrow keys or\nWASD to move\n\nQ to pause\nE to resume\nR to restart";
+	var txt = "WELCOME TO \nPACMAN!\n\n\nArrow keys or\nWASD to move";
 	var x = 12;
 	var y = CANVAS_HEIGHT-200;
 	var lineheight = 15;
@@ -564,7 +564,7 @@ function welcomeScreen(){
 	ctx.font = "20px monospace";
 	ctx.fillText("Press s to start", CANVAS_WIDTH/2, 220);
 	ctx.font = "14px monospace";
-	ctx.fillText("DEVELOPED BY: ZI WANG, BINGYING XIA", CANVAS_WIDTH/2 , CANVAS_HEIGHT/20*19);
+	ctx.fillText(" ", CANVAS_WIDTH/2 , CANVAS_HEIGHT/20*19);
 
 	welcomePacman = new Pacman(CANVAS_WIDTH/5, CANVAS_HEIGHT/3*2, RIGHT);
 	welcomePacman.radius = 30;
@@ -618,7 +618,7 @@ function winMessage(){
 	ctx.font = "16px monospace";
 	ctx.fillText("Congratulations, you won!", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+6);
 	ctx.font = "12px monospace";
-	ctx.fillText("press R to play again", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 }
 
 //show lose message
@@ -636,7 +636,16 @@ function loseMessage(){
 	ctx.font = "26px monospace";
 	ctx.fillText("GAME OVER", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+7);
 	ctx.font = "12px monospace";
-	ctx.fillText("press R to play again", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+}
+
+function spacePress(event){
+	var space = event.keyCode();
+	var spaceCode = 32;
+	if(space === spaceCode){
+		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+	}
+	
 }
 
 //update canvas for each frame. 
@@ -659,6 +668,7 @@ function updateCanvas() {
 			clearInterval(intervalId);
 			sleep(500);
 			loseMessage();
+ 			spacePress(event);
 		}
 		
 	}
@@ -666,6 +676,7 @@ function updateCanvas() {
 		clearInterval(intervalId);
 		sleep(500);
 		winMessage();
+ 		spacePress(event);
 	}
 	else{
 		if(weakCounter>0 && weakCounter<2000/timerDelay){
