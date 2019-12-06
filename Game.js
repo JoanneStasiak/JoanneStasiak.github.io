@@ -877,10 +877,11 @@ function onKeyDown (event) {
 			initMaze();
 			run();
 		}
-			if(!gameOn){
+		if(!gameOn){
 		
-		if(space === spaceCode){
-			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+			if(space === spaceCode){
+				window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+			}
 		}
 		
 
