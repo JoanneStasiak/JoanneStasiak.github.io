@@ -637,6 +637,11 @@ function loseMessage(){
 	ctx.fillText("GAME OVER", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+7);
 	ctx.font = "12px monospace";
 	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+	
+	if(space === spaceCode){
+		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+		}
+	
 }
 
 function spacePress(event){
@@ -877,12 +882,11 @@ function onKeyDown (event) {
 			initMaze();
 			run();
 		}
-		if(!gameOn){
 		
-			if(space === spaceCode){
-				window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
-			}
+		if(space === spaceCode){
+			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
 		}
+
 		
 
 		//4-way controls
