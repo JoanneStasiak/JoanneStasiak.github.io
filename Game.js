@@ -832,7 +832,7 @@ function onKeyDown (event) {
 	var upCode = 38;
 	var rightCode = 39;
 	var downCode = 40;
-
+        var spaceCode = 32;
 	//start game
 	if(!gameOn){
 		if(keycode === sCode){
@@ -883,7 +883,7 @@ function onKeyDown (event) {
 			run();
 		}
 		
-		if(space === spaceCode){
+		if(keyCode === spaceCode){
 			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
 		}
 
