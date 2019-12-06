@@ -638,9 +638,9 @@ function loseMessage(){
 	ctx.font = "12px monospace";
 	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 	
-	if(space === spaceCode){
-		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
-		}
+// 	if(space === spaceCode){
+// 		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+// 		}
 	
 }
 
@@ -677,7 +677,7 @@ function updateCanvas() {
 			clearInterval(intervalId);
 			sleep(500);
 			loseMessage();
- 			spacePress(event);
+//  			spacePress(event);
 		}
 		
 	}
@@ -685,7 +685,7 @@ function updateCanvas() {
 		clearInterval(intervalId);
 		sleep(500);
 		winMessage();
- 		spacePress(event);
+//  		spacePress(event);
 	}
 	else{
 		if(weakCounter>0 && weakCounter<2000/timerDelay){
@@ -883,7 +883,7 @@ function onKeyDown (event) {
 			run();
 		}
 		
-		if(keyCode === spaceCode){
+		if(keycode === spaceCode){
 			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
 		}
 
