@@ -642,8 +642,12 @@ function loseMessage(){
 function spacePress(event){
 	var space = event.keyCode();
 	var spaceCode = 32;
-	if(space === spaceCode){
-		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+	if(!gameOn){
+		
+		if(space === spaceCode){
+			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+		}
+		return;
 	}
 	
 }
@@ -873,6 +877,12 @@ function onKeyDown (event) {
 			initMaze();
 			run();
 		}
+			if(!gameOn){
+		
+		if(space === spaceCode){
+			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+		}
+		
 
 		//4-way controls
 		switch(keycode){
