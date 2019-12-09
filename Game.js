@@ -884,7 +884,7 @@ function onKeyDown (event) {
 		}
 		
 		if(keycode === spaceCode){
-			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+			window.top.close();
 		}
 
 		
