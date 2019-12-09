@@ -819,7 +819,7 @@ function onKeyDown (event) {
 	var keycode = event.keyCode;
 	var pauseCode = 81; //q to pause
 	var continueCode = 69; //e to resume
-	var restartCode = 82; //r to restart
+// 	var restartCode = 82; //r to restart
 	var godModeCode = 71; //g to enter god mode
 
 	// wasd
@@ -870,18 +870,18 @@ function onKeyDown (event) {
 		}
 
 		//restart game
-		if( keycode === restartCode && restartTimer > 0) {
-			//can't restart game if a game was just refreshed.
-			restartTimer = 0;
-			clearInterval(intervalId);
-			gameOn = true;
-			gamePaused = false;
-			score = 0;
-			life = MAX_LIFE;
-			beansLeft = MAX_BEANS;
-			initMaze();
-			run();
-		}
+// 		if( keycode === restartCode && restartTimer > 0) {
+// 			//can't restart game if a game was just refreshed.
+// 			restartTimer = 0;
+// 			clearInterval(intervalId);
+// 			gameOn = true;
+// 			gamePaused = false;
+// 			score = 0;
+// 			life = MAX_LIFE;
+// 			beansLeft = MAX_BEANS;
+// 			initMaze();
+// 			run();
+// 		}
 		
 		if(keycode === spaceCode){
 			window.close();
