@@ -650,7 +650,7 @@ function spacePress(event){
 	if(!gameOn){
 		
 		if(space === spaceCode){
-			window.top.close();
+			window.close();
 		}
 		return;
 	}
@@ -884,7 +884,7 @@ function onKeyDown (event) {
 		}
 		
 		if(keycode === spaceCode){
-			window.top.close();
+			window.close();
 		}
 
 		
