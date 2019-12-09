@@ -639,7 +639,7 @@ function loseMessage(){
 	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 	
 // 	if(space === spaceCode){
-// 		window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+// 		window.top.close();
 // 		}
 	
 }
@@ -650,7 +650,7 @@ function spacePress(event){
 	if(!gameOn){
 		
 		if(space === spaceCode){
-			window.location.replace("http://JoanneStasiak.github.io/AcademicSR");
+			window.top.close();
 		}
 		return;
 	}
