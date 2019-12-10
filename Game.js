@@ -7,6 +7,8 @@ var CANVAS_WIDTH = 510;
 var CANVAS_HEIGHT = 510;
 var canvas = document.getElementById(canvasID);
 var ctx = canvas.getContext("2d");
+var style;
+canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
 
 // game grid
 var GRID_WIDTH = 30;
