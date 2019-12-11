@@ -8,7 +8,7 @@ var CANVAS_HEIGHT = 510;
 var canvas = document.getElementById(canvasID);
 var ctx = canvas.getContext("2d");
 var style;
-canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px; top: 50%;";
+canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px; top: 25%;";
 // window.onload = window.onresize = function() {
 //     var canvas = document.getElementById('canvas');
 //     canvas.width = window.innerWidth * 0.8;
