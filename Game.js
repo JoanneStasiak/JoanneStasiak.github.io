@@ -622,9 +622,9 @@ function winMessage(){
 	ctx.textAlign="center";
 	ctx.fillStyle = "white";
 	ctx.font = "16px monospace";
-	ctx.fillText("Congratulations, you won!", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+6);
+	ctx.fillText("GAME OVER", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+6);
 	ctx.font = "12px monospace";
-	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+	ctx.fillText("YOU WON!", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 }
 
 //show lose message
@@ -642,7 +642,7 @@ function loseMessage(){
 	ctx.font = "26px monospace";
 	ctx.fillText("GAME OVER", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+7);
 	ctx.font = "12px monospace";
-	ctx.fillText("press SPACE", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
+	ctx.fillText("", CANVAS_HEIGHT/2, CANVAS_HEIGHT/2+28);
 	
 // 	if(space === spaceCode){
 // 		window.top.close();
