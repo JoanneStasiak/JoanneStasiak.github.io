@@ -35,7 +35,7 @@ var ORANGE = "#ffb847";
 var WEAK_COLOR = "#0031ff";
 var BLINKING_COLOR = "white";
 
-// size of sprites
+// size of bean things
 var NORMAL_BEAN_RADIUS = 2;
 var POWER_BEAN_RADIUS = 5;
 var PACMAN_RADIUS = 9;
@@ -68,7 +68,7 @@ var WEAK_DURATION = 10000/timerDelay;
 var NORMAL_BEAN = 1
 var POWER_BEAN = 2;
 
-//spirtes instances
+//instances
 var welcomePacman;
 var welcomeBlinky;
 var welcomeInky;
@@ -83,7 +83,7 @@ var ghosts;
 var gameOn = false;
 var gamePaused = false;
 var maze = new Array(CANVAS_HEIGHT/GRID_HEIGHT);
-var mazeContent = [
+var mazeContent = [ //draw the pretty map
 //row1
 [LEFT_TOP, TOP_BOTTOM, TOP_BOTTOM, TOP_ONLY, TOP_BOTTOM,
  TOP_BOTTOM, TOP_BOTTOM, RIGHT_TOP, LEFT_TOP, TOP_ONLY,
@@ -171,30 +171,30 @@ var mazeContent = [
  TOP_BOTTOM, RIGHT_BOTTOM]
 ];
 
-// grids that don't redraw
+// dont redraw grids, want the same map
 var staticGrids = [];
 var staticGridsIndex = 0;
 
 
-// start location of pacman
+// start location of pacman, can change this
 var pacmanStartLoc = [4,9];
 
-// grids with no beans
+// grids with no beans, after pacman eats them they should disappear
 var noBean = [pacmanStartLoc,[5,12],[5,13],[5,3],[9,5],[9,6],[1,1],[5,1],[3,0],[2,4],[4,6],[5,6],[5,5],[12,7],[14,5],[12,11],[14,11]];
 var noBeanIndex=noBean.length;
 
 
-// power beans in maze
+// power beans in maze, put em where you want
 var powerBeans = [[0,0], [2,13], [16,4], [16,16], [2,5], [14,10]];
 
 
 // ghost house
 var ghostHouse = [];
 var ghostHouseIndex = 0;
-/*======================END GLOBAL VARs====================*/
+/*======================end of the global vars====================*/
 
 
-/*====================Initialization Methods==============*/
+/*====================time to initialize==============*/
 
 function initCanvas(width, height){
 	if(width===undefined || !(width instanceof Number)){
@@ -246,14 +246,14 @@ function initMaze(){
 
 
 function initFields () {
-	// body...
+	// put some ghosties out
 	for (var i=6; i<10; i++){
 		ghostHouse[ghostHouseIndex]=[i,9];
 		ghostHouseIndex++;
 	}
 
 
-	//fill up staticGrids[]
+	//fill up static grids for our map
 	for (var i=0; i<2; i++){
 		for (var j=8; j<17; j++){
 			staticGrids[staticGridsIndex]=[i,j];
@@ -273,7 +273,7 @@ function initFields () {
 		}
 	}
 
-	//fill up noBean[]
+	//fill up no bean map - mapception - draw a new map with missing beans
 	for(var i=0; i<2; i++){
 		for(var j=8; j<17; j++){
 			noBean[noBeanIndex]=[i,j];
@@ -349,11 +349,11 @@ function initFields () {
 		noBeanIndex++;
 	}
 }
-/*================END Initialization Methods==============*/
+/*================stop initializing==============*/
 
 
-/*====================Util Methods================*/
-//draw a circle
+/*====================utils================*/
+//draw the circles we need
 function circle(ctx, cx, cy, radius) {
 
 	ctx.beginPath();
@@ -362,7 +362,7 @@ function circle(ctx, cx, cy, radius) {
 
 }
 
-//get opposite direction
+//get opposite direction to automate moving
 function oppositeDir (dir) {
 	switch(dir){
 		case UP:
@@ -385,7 +385,7 @@ function oppositeDir (dir) {
 		return -1;//err
 	}
 }
-
+// find locations of things
 function getRowIndex (yCord) {
 	if(yCord === undefined){
 		return -1;//err
@@ -468,7 +468,7 @@ function yOnGridCenter (x) {
 	return ((x - GRID_HEIGHT/2) % GRID_HEIGHT) === 0;
 }
 
-//see if sprite can move one more step at the given (x,y) facing the given direction
+//see if ghost/pacman can move one more step at the given (x,y) facing the given direction, if not it has to change direction
 function canMove (x,y,dir) {
 	if(!onGridCenter(x,y)){
 		return true;
@@ -515,10 +515,10 @@ function canMove (x,y,dir) {
 	}
 	return canMove;
 }
-/*=================END Util Methods================*/
+/*=================end utils================*/
 
 
-/*=================UI Update Methods===============*/
+/*=================instructions, openings===============*/
 
 // draw instructions
 function printInstruction () {
@@ -541,7 +541,6 @@ function printInstruction () {
 		ctx.fillStyle = "red";
 		ctx.font = "16px monospace";
 		ctx.textAlign = "left";
-		ctx.fillText("GOD MODE", x, CANVAS_WIDTH-20);
 	}
 
 }
@@ -816,17 +815,16 @@ function countDown () {
 		}, 1000);	
 	}, 1000);
 }
-/*==================END UI Update Methods================*/
+/*==================end updates================*/
 
 
-/*==================Game Control Methods===================*/
+/*==================game controls==================*/
 //listen to keyDown event
 function onKeyDown (event) {
 	var keycode = event.keyCode;
 	var pauseCode = 81; //q to pause
 	var continueCode = 69; //e to resume
 // 	var restartCode = 82; //r to restart
-// 	var godModeCode = 71; //g to enter god mode
         var startGame = 71;
 	// wasd
 	var wCode = 87; 
@@ -956,11 +954,11 @@ function run(startGame) {
 	mrPacman.draw();
 	countDown();
 }
-/*===============END Game Control Methods===================*/
+/*===============end game controls===================*/
 
 
 
-/*-----------GAME START-----------*/
+/*-----------lets playyyy!-----------*/
 initFields();
 initCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 canvas.addEventListener('keydown', onKeyDown, false);
