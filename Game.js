@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////
-// Group members: Zi Wang (ziw), Bingying Xia(bxia) //
+// written by jStasiak with code from Zi Wang's Github//
 //////////////////////////////////////////////////////
 
 var canvasID = "myCanvas";
@@ -826,8 +826,8 @@ function onKeyDown (event) {
 	var pauseCode = 81; //q to pause
 	var continueCode = 69; //e to resume
 // 	var restartCode = 82; //r to restart
-	var godModeCode = 71; //g to enter god mode
-
+// 	var godModeCode = 71; //g to enter god mode
+        var startGame = 71;
 	// wasd
 	var wCode = 87; 
 	var aCode = 65;
@@ -845,11 +845,11 @@ function onKeyDown (event) {
 			clearInterval(intervalId);
 			gameOn = true;
 			gamePaused = false;
-			initMaze();
+			initMaze(); // draw the map
 			run();
 			return;
 		}
-		else if(keycode === godModeCode){
+		else if(keycode === startGame){
 			clearInterval(intervalId);
 			ghosts = [];
 			gameOn = true;
@@ -875,7 +875,7 @@ function onKeyDown (event) {
 			return;
 		}
 
-		//restart game
+		//restart game - don't restart the game!! we only want one round for each trial
 // 		if( keycode === restartCode && restartTimer > 0) {
 // 			//can't restart game if a game was just refreshed.
 // 			restartTimer = 0;
@@ -925,11 +925,11 @@ function onKeyDown (event) {
 }
 
 //run the game. Create mrPacman and 4 ghosts. Reset their positions.
-function run(isGodMode) {
+function run(startGame) {
 	showScore();
     
     mrPacman = new Pacman(pacmanStartLoc[1]*GRID_WIDTH + GRID_WIDTH/2, pacmanStartLoc[0]*GRID_HEIGHT + GRID_HEIGHT/2, RIGHT);
-    if(isGodMode===undefined || !isGodMode){
+    if(startGame===undefined || !startGame){
 	    blinky = new Ghost(0,0, RED, DOWN);
 	    inky = new Ghost(0,0, CYAN, DOWN);
 	    pinky = new Ghost(0,0, PINK, DOWN);
