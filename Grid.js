@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////
-// Group members: Zi Wang (ziw), Bingying Xia(bxia) //
+// written by jStasiak with code from Zi Wang's github//
 //////////////////////////////////////////////////////
 
 
@@ -30,7 +30,7 @@ var CLOSED_GRID = 15;
 
 
 
-function Grid (xCord, yCord, gridType, beanType) {
+function Grid (xCord, yCord, gridType, beanType) { //use global objects
 	this.x = xCord;
 	this.y = yCord;
 	this.gridType = gridType===undefined? EMPTY_GRID : gridType;
